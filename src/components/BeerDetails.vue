@@ -1,0 +1,113 @@
+<template>
+  <div class="outline">
+    <b-carousel
+      id="carousel-1"
+      :interval="8000"
+      controls
+      indicators
+      background="rgb(232, 158, 12)"
+      img-width="1024"
+      img-height="480"
+      style="text-shadow: 1px 1px 2px #333;"
+    >
+      <!-- @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"-->
+
+      <b-carousel-slide>
+        <template v-slot:img>
+          <h3>{{currentBeer.name}}</h3>
+          <img
+            class="d-block img-fluid w-100"
+            width="1024"
+            height="480"
+            :src="currentBeer.image_url"
+            :alt="currentBeer.name"
+          />
+        </template>
+      </b-carousel-slide>
+
+      <!-- Slide with blank fluid image to maintain slide aspect ratio -->
+      <b-carousel-slide img-blank :img-alt="currentBeer.name">
+        <img
+          src="https://blog.joypixels.com/content/images/2019/12/clinking_beer_mugs-1.gif"
+          alt="beer"
+        />
+        <ul>
+          <li>ABV: {{currentBeer.abv}}%</li>
+        </ul>
+        <p>{{currentBeer.description}}</p>
+        <p>First Brewed: {{currentBeer.first_brewed}}</p>
+      </b-carousel-slide>
+    </b-carousel>
+  </div>
+</template>
+<script>
+import { mapGetters, mapActions } from "vuex";
+export default {
+  name: "BeerDetail",
+  computed: mapGetters(["currentBeer", "allBeers"]),
+
+  methods: {
+    ...mapActions(["updateCurrentBeer", "setCurrentBeer", "fetchBeers"])
+  },
+
+  async created() {
+    const id = parseInt(this.$route.params.id);
+    if (this.allBeers.length > 0) {
+      console.log("have bears in vuex");
+      this.updateCurrentBeer(id);
+    } else if (
+      localStorage.getItem("currentBeer") &&
+      id === JSON.parse(localStorage.getItem("currentBeer")).id
+    ) {
+      console.log("have currentBear with correct id in local storage");
+      const currentBeer = JSON.parse(localStorage.getItem("currentBeer"));
+      this.$store.commit("setCurrentBeer", currentBeer);
+    } else {
+      console.log("have nothing");
+      await this.fetchBeers();
+      this.updateCurrentBeer(id);
+    }
+  },
+
+  watch: {
+    currentBeer: {
+      handler() {
+        if (this.currentBeer) {
+          console.log("beers set?");
+          localStorage.setItem("currentBeer", JSON.stringify(this.currentBeer));
+        }
+      }
+    }
+  }
+};
+</script>
+<style scoped>
+.img-fluid {
+  width: 100%;
+  height: 36vw;
+  object-fit: contain;
+}
+#carousel-1 {
+  margin: 70px;
+  outline: 2px solid orange;
+  outline-offset: 20px;
+}
+.d-block {
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+.outline {
+  border: 2px solid orange;
+  margin: 20px;
+}
+
+h3 {
+  margin: auto;
+  color: white;
+  text-align: center;
+}
+</style>
+
+
+
