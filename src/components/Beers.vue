@@ -50,6 +50,8 @@ export default {
 };
 </script>
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Modak&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 .container:after {
   content: "";
   display: table;
@@ -89,10 +91,12 @@ export default {
   padding-top: 8px;
   outline: orange solid 0.9px;
   outline-offset: -1px;
+  font-family: "Indie Flower", cursive;
 }
 .title {
   font-size: 18px;
   color: rgb(121, 121, 121);
+  font-family: "Bangers", cursive;
 }
 .link {
   color: grey;

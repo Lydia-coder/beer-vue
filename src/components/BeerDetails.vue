@@ -104,6 +104,7 @@ export default {
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Modak&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 .img-fluid {
   width: 100%;
   height: 36vw;
@@ -129,6 +130,9 @@ h3 {
   text-align: center;
   font-family: "Bangers", cursive;
 }
+h4 {
+  font-family: "Bangers", cursive;
+}
 li {
   list-style-type: none;
   text-align: center;
@@ -136,6 +140,13 @@ li {
 p ::before {
   content: "\A";
   white-space: pre;
+}
+
+p {
+  font-family: "Indie Flower", cursive;
+}
+ul {
+  font-family: "Indie Flower", cursive;
 }
 </style>
 
