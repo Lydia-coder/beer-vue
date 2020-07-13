@@ -38,9 +38,7 @@ const getters = {
 const actions = {
   async fetchBeers({ commit }) {
     try {
-      const response = await axios.get(
-        "https://api.punkapi.com/v2/beers/random"
-      );
+      const response = await axios.get("https://api.punkapi.com/v2/beers");
 
       commit("setBeers", response.data);
     } catch (error) {
