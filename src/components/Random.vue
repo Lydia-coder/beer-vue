@@ -49,6 +49,8 @@ export default {
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Bangers&family=Modak&family=Shadows+Into+Light&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
 .body {
   border: solid 2px orange;
   padding: 100px;
@@ -64,7 +66,7 @@ img {
   height: 300px;
 }
 h3 {
-  font-family: "Modak", cursive;
+  font-family: "Bangers", cursive;
   text-align: center;
   font-size: 50px;
 }
@@ -75,13 +77,13 @@ h4 {
 }
 p {
   text-align: center;
-  font-family: "Shadows Into Light", cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 20px;
 }
 ul {
   text-align: center;
   list-style: none;
-  font-family: "Shadows Into Light", cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 20px;
 }
 </style>

@@ -24,9 +24,14 @@ export default {
 };
 </script>
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
 .body {
   border: solid 2px orange;
   padding: 100px;
   margin: 20px;
+}
+p {
+  font-family: "Indie Flower", cursive;
 }
 </style>
