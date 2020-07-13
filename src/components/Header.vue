@@ -1,16 +1,18 @@
 <template>
-  <div>
+  <div class="box">
     <section>
       <Nav />
+
       <div class="wrapper">
-        <h1 class="giga bree-serif regular double-header-line">Welcome</h1>
-        <p class="delta oswald regular uppercase ls-large">to my beer app</p>
+        <h1 class="giga bree-serif regular double-header-line">Beer app</h1>
+        <p class="delta oswald regular uppercase ls-large">by Lydia Michael Smeets</p>
       </div>
     </section>
   </div>
 </template>
 <script>
 import Nav from "../components/Nav";
+
 export default {
   name: "Header",
   components: {
@@ -19,6 +21,8 @@ export default {
 };
 </script>
 <style scoped>
+.box {
+}
 section {
   height: 300px;
   padding: 3rem 0;

@@ -1,41 +1,49 @@
 <template>
   <div class="container">
-    <b-card
-      v-bind:key="beer.id"
-      v-for="beer in allBeers "
-      :img-src="beer.image_url"
-      :alt="beer.name"
-      img-top
-      tag="article"
-      style="max-width: 22rem  ;"
-      class="mb-2"
-    >
-      <b-card-text class="c-text">
-        <h4 class="title">{{ beer.name }}</h4>
-        <p>{{ beer.ingredients.malt[0].name }}</p>
+    <div>
+      <Search />
+    </div>
+    <div v-for="beer in filteredBeers" v-bind:key="beer.id">
+      <b-card
+        :img-src="beer.image_url"
+        :alt="beer.name"
+        img-top
+        tag="article"
+        style="max-width: 22rem  ;"
+        class="mb-2"
+      >
+        <b-card-text class="c-text">
+          <h4 class="title">{{ beer.name }}</h4>
+          <p>{{ beer.ingredients.malt[0].name }}</p>
 
-        <router-link
-          :to="{
+          <router-link
+            :to="{
           name: 'BeerDetails',
           params: { id: beer.id,  beer:beer },
         }"
-        >
-          <b-button class="link" size="sm" variant="outline-warning">View Beer details</b-button>
-        </router-link>
-      </b-card-text>
-    </b-card>
+          >
+            <b-button class="link" size="sm" variant="outline-warning">View Beer details</b-button>
+          </router-link>
+        </b-card-text>
+      </b-card>
+    </div>
   </div>
 </template>
 
 <script>
+import Search from "./Search";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  components: {},
+  components: { Search },
   name: "Beers",
-  //   props: ["beers"],
-  methods: { ...mapActions(["fetchBeers"]) },
-  computed: mapGetters(["allBeers"]),
+
+  //props: ["beer.hidden"],
+  methods: {
+    ...mapActions(["fetchBeers"])
+  },
+  computed: mapGetters(["filteredBeers"]),
+
   created() {
     this.fetchBeers();
   }

@@ -22,6 +22,13 @@ const routes = [
       ),
   },
   {
+    path: "/random",
+    name: "Random",
+
+    component: () =>
+      import(/* webpackChunkName: "BeerDetails" */ "../components/Random.vue"),
+  },
+  {
     path: "/About",
     name: "About",
 

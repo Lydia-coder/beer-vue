@@ -15,35 +15,31 @@
           <li>About</li>
         </a>
         <a href="#">
-          <li>Catagory</li>
-        </a>
-        <a href="#">
-          <li>Random</li>
+          <router-link :to="{
+          name: 'Random',
+          params: { random },
+        }">
+            <li>Random</li>
+          </router-link>
         </a>
       </ul>
-    </div>
-    <b-icon-search class="icon"></b-icon-search>
-    <div class="input-text">
-      <b-form-input v-model="text" placeholder="Enter your name">{{ text }}</b-form-input>
     </div>
   </nav>
 </template>
 <script>
+//import Random from "./Random";
 export default {
   name: "Nav",
-  data() {
-    return {
-      text: ""
-    };
-  }
+  components: {}
 };
 </script>
 <style scoped>
 #menuToggle {
   display: block;
-  position: relative;
+  position: fixed;
+
   top: 50px;
-  left: 50px;
+  left: 20px;
 
   z-index: 1;
 
@@ -88,7 +84,7 @@ export default {
   margin-bottom: 5px;
   position: relative;
 
-  background: #fff;
+  background: rgb(131, 127, 127);
   border-radius: 3px;
 
   z-index: 1;
@@ -142,7 +138,7 @@ export default {
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-
+  overflow: hidden;
   background: #fff;
   border: 1px solid grey;
   list-style-type: none;
@@ -167,14 +163,14 @@ export default {
   transform: none;
 }
 
-.input-text {
+/* .input-text {
   float: right;
   padding: 6px;
   border: none;
   margin-top: 8px;
   margin-right: 16px;
   font-size: 17px;
-}
+} */
 .icon {
   float: right;
   margin-right: 10px;

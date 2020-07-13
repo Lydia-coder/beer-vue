@@ -15,7 +15,6 @@
 
       <b-carousel-slide>
         <template v-slot:img>
-          <h3>{{currentBeer.name}}</h3>
           <img
             class="d-block img-fluid w-100"
             width="1024"
@@ -28,15 +27,36 @@
 
       <!-- Slide with blank fluid image to maintain slide aspect ratio -->
       <b-carousel-slide img-blank :img-alt="currentBeer.name">
+        <h3>{{currentBeer.name}}</h3>
         <img
           src="https://blog.joypixels.com/content/images/2019/12/clinking_beer_mugs-1.gif"
           alt="beer"
         />
-        <ul>
-          <li>ABV: {{currentBeer.abv}}%</li>
-        </ul>
-        <p>{{currentBeer.description}}</p>
-        <p>First Brewed: {{currentBeer.first_brewed}}</p>
+        <div>
+          <h4>ABV:</h4>
+          <li>{{currentBeer.abv}}%</li>
+        </div>
+
+        <h4>First Brewed:</h4>
+        <p>{{currentBeer.first_brewed}}</p>
+      </b-carousel-slide>
+
+      <b-carousel-slide img-blank :img-alt="currentBeer.name">
+        <div>
+          <h4>Description:</h4>
+          <p>{{currentBeer.description}}</p>
+        </div>
+
+        <div>
+          <h4>Brewers Tips:</h4>
+          <p>{{currentBeer. brewers_tips}}</p>
+        </div>
+        <div>
+          <h4>Food Pairing :</h4>
+          <ul v-for="food in currentBeer.food_pairing" :key="food">
+            <li>{{food}}</li>
+          </ul>
+        </div>
       </b-carousel-slide>
     </b-carousel>
   </div>
@@ -83,6 +103,7 @@ export default {
 };
 </script>
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Modak&display=swap");
 .img-fluid {
   width: 100%;
   height: 36vw;
@@ -106,6 +127,15 @@ h3 {
   margin: auto;
   color: white;
   text-align: center;
+  font-family: "Bangers", cursive;
+}
+li {
+  list-style-type: none;
+  text-align: center;
+}
+p ::before {
+  content: "\A";
+  white-space: pre;
 }
 </style>
 

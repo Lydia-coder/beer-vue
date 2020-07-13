@@ -1,7 +1,19 @@
 <template>
   <div class="about">
     <Header />
-    <h1>bla bla</h1>
+    <div class="body">
+      <p>
+        This a app that fetches data from PunkApi.
+        The app starts on the home page displaying a list of beers.
+        To see more details about a beer click on the vieuw more button.
+        Here you can see in de slide more info about the beer you have chosen.
+        When clicking on the hamburger menu you can see the :
+        - home page
+        - about page
+        - random page
+        when you click random you will be redirected to a random beer an its details
+      </p>
+    </div>
   </div>
 </template>
 <script>
@@ -11,3 +23,10 @@ export default {
   components: { Header }
 };
 </script>
+<style scoped>
+.body {
+  border: solid 2px orange;
+  padding: 100px;
+  margin: 20px;
+}
+</style>
