@@ -5,9 +5,7 @@
 
       <div class="wrapper">
         <h1 class="giga bree-serif regular double-header-line">Beer app</h1>
-        <p class="delta oswald regular uppercase ls-large">
-          by Lydia Michael Smeets
-        </p>
+        <p class="delta oswald regular uppercase ls-large">by Lydia Michael Smeets</p>
       </div>
     </section>
   </div>
@@ -18,8 +16,8 @@ import Nav from "../components/Nav";
 export default {
   name: "Header",
   components: {
-    Nav,
-  },
+    Nav
+  }
 };
 </script>
 <style scoped>
@@ -129,6 +127,10 @@ p {
   }
   .ls-large {
     letter-spacing: 4px;
+  }
+  .double-header-line:before,
+  .double-header-line:after {
+    width: 6rem;
   }
 }
 </style>
