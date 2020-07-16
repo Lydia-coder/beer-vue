@@ -14,7 +14,7 @@ import Footer from "../components/Footer";
 //import axios from "axios";
 export default {
   name: "Home",
-  components: { Beers, Header, Footer },
+  components: { Beers, Header, Footer }
   // data() {
   //   return {
   //     beers: [],

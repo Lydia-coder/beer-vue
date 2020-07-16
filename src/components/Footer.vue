@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="f">
     <footer>
       website:
       <router-link to="http://localhost:8080/">beer</router-link>
@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-  name: "Footer",
+  name: "Footer"
 };
 </script>
 <style scoped>
@@ -23,5 +23,15 @@ footer {
     rgba(232, 158, 12, 1) 0%,
     rgba(249, 124, 17, 1) 100%
   );
+}
+@media only screen and (max-width: 500px) {
+  .f {
+    width: 600px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .f {
+    width: 600px;
+  }
 }
 </style>

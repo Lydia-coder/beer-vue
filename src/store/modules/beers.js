@@ -5,15 +5,13 @@ const state = {
   currentBeer: null,
   randomBeer: null,
   searchString: "",
-  brewedBefore: [],
-  // brewedAfter: [],
 };
 
 const getters = {
   allBeers: (state) => state.beers,
   currentBeer: (state) => state.currentBeer,
   getRandomBeer: (state) => state.randomBeer,
-  // getBrewedBefore: (state) => state.brewedBefore,
+
   getBrewedAfter: (state) => state.brewedAfter,
   filteredBeers: (state) => {
     if (state.searchString) {
@@ -44,7 +42,7 @@ const actions = {
   async fetchBeers({ commit }) {
     try {
       const response = await axios.get(
-        "https://api.punkapi.com/v2/beers?per_page=60&brewed_before=11-2016"
+        "https://api.punkapi.com/v2/beers?per_page=10&brewed_before=11-2016"
       );
 
       commit("setBeers", response.data);
@@ -80,28 +78,6 @@ const actions = {
       console.log(error);
     }
   },
-  // async brewedBefore({ commit }) {
-  //   try {
-  //     const response = await axios.get(
-  //       "https://api.punkapi.com/v2/beers?brewed_before=10-2015"
-  //     );
-  //     //console.log(response);
-  //     commit("setBrewed", response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
-  // async brewedAfter({ commit }) {
-  //   try {
-  //     const response = await axios.get(
-  //       "https://api.punkapi.com/v2/beers?brewed_after=10-2015"
-  //     );
-  //     //console.log(response);
-  //     commit("setBrewedAfter", response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
 };
 
 const mutations = {
@@ -109,8 +85,6 @@ const mutations = {
   setCurrentBeer: (state, currentBeer) => (state.currentBeer = currentBeer),
   setRandomBeer: (state, beer) => (state.randomBeer = beer),
   setSearchString: (state, searchString) => (state.searchString = searchString),
-  // setBrewed: (state, beer) => (state.brewedBefore = beer),
-  // setBrewedAfter: (state, beer) => (state.brewedAfter = beer),
 };
 
 export default {

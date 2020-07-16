@@ -23,9 +23,7 @@
               params: { id: beer.id, beer: beer },
             }"
           >
-            <b-button class="link" size="sm" variant="outline-warning"
-              >View Beer details</b-button
-            >
+            <b-button class="link" size="sm" variant="outline-warning">View Beer details</b-button>
           </router-link>
         </b-card-text>
       </b-card>
@@ -43,13 +41,13 @@ export default {
 
   //props: ["beer.hidden"],
   methods: {
-    ...mapActions(["fetchBeers"]),
+    ...mapActions(["fetchBeers"])
   },
   computed: mapGetters(["filteredBeers"]),
 
   created() {
     this.fetchBeers();
-  },
+  }
 };
 </script>
 <style scoped>
@@ -145,10 +143,10 @@ export default {
 }
 @media only screen and (max-width: 400px) {
   .title {
-    font-size: 10px;
+    font-size: 9px;
   }
   .mb-2 {
-    width: 50%;
+    width: 40%;
   }
 }
 </style>
