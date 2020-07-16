@@ -3,6 +3,7 @@
     <div>
       <Search />
     </div>
+
     <div v-for="beer in filteredBeers" v-bind:key="beer.id">
       <b-card
         :img-src="beer.image_url"
@@ -18,11 +19,13 @@
 
           <router-link
             :to="{
-          name: 'BeerDetails',
-          params: { id: beer.id,  beer:beer },
-        }"
+              name: 'BeerDetails',
+              params: { id: beer.id, beer: beer },
+            }"
           >
-            <b-button class="link" size="sm" variant="outline-warning">View Beer details</b-button>
+            <b-button class="link" size="sm" variant="outline-warning"
+              >View Beer details</b-button
+            >
           </router-link>
         </b-card-text>
       </b-card>
@@ -40,13 +43,13 @@ export default {
 
   //props: ["beer.hidden"],
   methods: {
-    ...mapActions(["fetchBeers"])
+    ...mapActions(["fetchBeers"]),
   },
   computed: mapGetters(["filteredBeers"]),
 
   created() {
     this.fetchBeers();
-  }
+  },
 };
 </script>
 <style scoped>
@@ -103,5 +106,49 @@ export default {
 }
 .link:hover {
   color: white;
+}
+
+@media only screen and (max-width: 800px) {
+  .title {
+    font-size: 9px;
+  }
+  .mb-2 {
+    width: 30.5%;
+  }
+  .card-img-top {
+    width: 100%;
+    height: 16vw;
+  }
+  .c-text {
+    font-size: 8px;
+    outline: orange solid 0.9px;
+    outline-offset: 2px;
+  }
+  .btn-sm {
+    padding: 2px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .title {
+    font-size: 12px;
+  }
+  .c-text {
+    font-size: 10px;
+  }
+  .mb-2 {
+    width: 40%;
+  }
+  .card-img-top {
+    width: 100%;
+    height: 19vw;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .title {
+    font-size: 10px;
+  }
+  .mb-2 {
+    width: 50%;
+  }
 }
 </style>

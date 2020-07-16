@@ -15,10 +15,12 @@
           <li>About</li>
         </a>
         <a href="#">
-          <router-link :to="{
-          name: 'Random',
-          params: { random },
-        }">
+          <router-link
+            :to="{
+              name: 'Random',
+              params: { random },
+            }"
+          >
             <li>Random</li>
           </router-link>
         </a>
@@ -30,7 +32,7 @@
 //import Random from "./Random";
 export default {
   name: "Nav",
-  components: {}
+  components: {},
 };
 </script>
 <style scoped>
@@ -74,9 +76,6 @@ export default {
   -webkit-touch-callout: none;
 }
 
-/*
- * Just a quick hamburger
- */
 #menuToggle span {
   display: block;
   width: 33px;
@@ -143,7 +142,6 @@ export default {
   border: 1px solid grey;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
 
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
@@ -163,17 +161,28 @@ export default {
   transform: none;
 }
 
-/* .input-text {
-  float: right;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-} */
 .icon {
   float: right;
   margin-right: 10px;
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+  #menuToggle span {
+    width: 23px;
+    height: 2px;
+  }
+  #menuToggle {
+    left: 10px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #menuToggle span {
+    width: 23px;
+    height: 2px;
+  }
+  #menuToggle {
+    left: 2px;
+  }
 }
 </style>

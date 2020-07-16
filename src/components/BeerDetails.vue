@@ -29,34 +29,31 @@
 
         <!-- Slide with blank fluid image to maintain slide aspect ratio -->
         <b-carousel-slide img-blank :img-alt="currentBeer.name">
-          <h3>{{currentBeer.name}}</h3>
+          <h3>{{ currentBeer.name }}</h3>
           <img
+            class="gif"
             src="https://blog.joypixels.com/content/images/2019/12/clinking_beer_mugs-1.gif"
             alt="beer"
           />
           <div>
             <h4>ABV:</h4>
-            <li>{{currentBeer.abv}}%</li>
+            <li>{{ currentBeer.abv }}%</li>
           </div>
 
           <h4>First Brewed:</h4>
-          <p>{{currentBeer.first_brewed}}</p>
+          <p>{{ currentBeer.first_brewed }}</p>
         </b-carousel-slide>
 
         <b-carousel-slide img-blank :img-alt="currentBeer.name">
           <div>
             <h4>Description:</h4>
-            <p>{{currentBeer.description}}</p>
+            <p>{{ currentBeer.description }}</p>
           </div>
 
           <div>
-            <h4>Brewers Tips:</h4>
-            <p>{{currentBeer. brewers_tips}}</p>
-          </div>
-          <div>
             <h4>Food Pairing :</h4>
             <ul v-for="food in currentBeer.food_pairing" :key="food">
-              <li>{{food}}</li>
+              <li>{{ food }}</li>
             </ul>
           </div>
         </b-carousel-slide>
@@ -73,7 +70,7 @@ export default {
   computed: mapGetters(["currentBeer", "allBeers"]),
 
   methods: {
-    ...mapActions(["updateCurrentBeer", "setCurrentBeer", "fetchBeers"])
+    ...mapActions(["updateCurrentBeer", "setCurrentBeer", "fetchBeers"]),
   },
 
   async created() {
@@ -102,9 +99,9 @@ export default {
           console.log("beers set?");
           localStorage.setItem("currentBeer", JSON.stringify(this.currentBeer));
         }
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 <style scoped>
@@ -123,8 +120,6 @@ export default {
 .d-block {
   margin-top: 10px;
   margin-bottom: 6px;
-}
-.outline {
 }
 
 h3 {
@@ -153,7 +148,66 @@ ul {
   font-family: "Indie Flower", cursive;
   font-size: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  gif {
+    height: 25px;
+    width: 24px;
+  }
+  h4 {
+    font-size: 1px;
+  }
+  p {
+    font-size: 0.7px;
+  }
+  li {
+    font-size: 0.7px;
+  }
+  h3 {
+    font-size: 22px;
+  }
+  #carousel-1 {
+    margin: 3px;
+    outline: 2px solid orange;
+    outline-offset: 1px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .gif {
+    height: 25px;
+    width: 24px;
+  }
+  h4 {
+    font-size: 4px;
+  }
+  p {
+    font-size: 2px;
+  }
+  li {
+    font-size: 2px;
+  }
+  h3 {
+    font-size: 22px;
+  }
+  #carousel-1 {
+    margin: 40px;
+    outline: 2px solid orange;
+    outline-offset: 20px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .gif {
+    height: 30px;
+    width: 30px;
+  }
+  h4 {
+    font-size: 13px;
+  }
+  p {
+    font-size: 10px;
+  }
+  li {
+    font-size: 10px;
+  }
+}
 </style>
-
-
-
