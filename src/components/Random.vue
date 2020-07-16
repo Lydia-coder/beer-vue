@@ -26,6 +26,8 @@
           <ul v-for="food in random.food_pairing" :key="food">
             <li>{{food}}</li>
           </ul>
+
+          <button class="btn" v-on:click="reloadPage">click for another beer!</button>
         </div>
       </div>
     </div>
@@ -40,8 +42,15 @@ export default {
     Header
   },
 
-  methods: { ...mapActions(["getRandom"]) },
+  methods: {
+    ...mapActions(["getRandom"]),
+    reloadPage() {
+      window.location.reload();
+    }
+  },
+
   computed: mapGetters(["getRandomBeer"]),
+
   created() {
     this.getRandom();
   }
@@ -85,5 +94,10 @@ ul {
   list-style: none;
   font-family: "Indie Flower", cursive;
   font-size: 20px;
+}
+.btn {
+  background-color: white;
+  border: 1px solid orange;
+  margin-left: 300px;
 }
 </style>
