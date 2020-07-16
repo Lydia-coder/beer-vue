@@ -70,7 +70,7 @@ export default {
   computed: mapGetters(["currentBeer", "allBeers"]),
 
   methods: {
-    ...mapActions(["updateCurrentBeer", "setCurrentBeer", "fetchBeers"]),
+    ...mapActions(["updateCurrentBeer", "setCurrentBeer", "fetchBeers"])
   },
 
   async created() {
@@ -99,9 +99,9 @@ export default {
           console.log("beers set?");
           localStorage.setItem("currentBeer", JSON.stringify(this.currentBeer));
         }
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
 <style scoped>
@@ -161,6 +161,10 @@ ul {
     font-size: 0.7px;
   }
   li {
+    font-size: 0.7px;
+    line-height: 0%;
+  }
+  ul {
     font-size: 0.7px;
   }
   h3 {
