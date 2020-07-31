@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <div class="outline">
+    <div class="c-box">
       <b-carousel
         id="carousel-1"
         :interval="8000"
@@ -39,6 +39,7 @@
             <h4>ABV:</h4>
             <li>{{ currentBeer.abv }}%</li>
           </div>
+          <br />
 
           <h4>First Brewed:</h4>
           <p>{{ currentBeer.first_brewed }}</p>
@@ -70,7 +71,7 @@ export default {
   computed: mapGetters(["currentBeer", "allBeers"]),
 
   methods: {
-    ...mapActions(["updateCurrentBeer", "setCurrentBeer", "fetchBeers"])
+    ...mapActions(["updateCurrentBeer", "setCurrentBeer", "fetchBeers"]),
   },
 
   async created() {
@@ -99,9 +100,9 @@ export default {
           console.log("beers set?");
           localStorage.setItem("currentBeer", JSON.stringify(this.currentBeer));
         }
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 <style scoped>
@@ -149,31 +150,19 @@ ul {
   font-size: 20px;
 }
 
-@media only screen and (max-width: 600px) {
-  gif {
-    height: 25px;
-    width: 24px;
+@media only screen and (max-width: 900px) {
+  .gif {
+    height: 30px;
+    width: 30px;
   }
   h4 {
-    font-size: 1px;
+    font-size: 13px;
   }
   p {
-    font-size: 0.7px;
+    font-size: 9px;
   }
   li {
-    font-size: 0.7px;
-    line-height: 0%;
-  }
-  ul {
-    font-size: 0.7px;
-  }
-  h3 {
-    font-size: 22px;
-  }
-  #carousel-1 {
-    margin: 3px;
-    outline: 2px solid orange;
-    outline-offset: 1px;
+    font-size: 10px;
   }
 }
 @media only screen and (max-width: 700px) {
@@ -182,13 +171,13 @@ ul {
     width: 24px;
   }
   h4 {
-    font-size: 4px;
+    font-size: 15px;
   }
   p {
-    font-size: 2px;
+    font-size: 10px;
   }
   li {
-    font-size: 2px;
+    font-size: 10px;
   }
   h3 {
     font-size: 22px;
@@ -199,19 +188,38 @@ ul {
     outline-offset: 20px;
   }
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 500px) {
   .gif {
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 24px;
   }
   h4 {
-    font-size: 13px;
+    font-size: 12px;
   }
   p {
-    font-size: 10px;
+    font-size: 8px;
   }
   li {
-    font-size: 10px;
+    font-size: 8px;
+    line-height: 0%;
+  }
+  ul {
+    font-size: 5px;
+  }
+  h3 {
+    font-size: 22px;
+  }
+  #carousel-1 {
+    margin: 50px;
+    outline: 2px solid orange;
+    outline-offset: 10px;
+  }
+  .c-box {
+    width: 600px;
+  }
+  .img-fluid {
+    width: 100%;
+    height: 50vw;
   }
 }
 </style>

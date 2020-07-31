@@ -41,13 +41,13 @@ export default {
 
   //props: ["beer.hidden"],
   methods: {
-    ...mapActions(["fetchBeers"])
+    ...mapActions(["fetchBeers"]),
   },
   computed: mapGetters(["filteredBeers"]),
 
   created() {
     this.fetchBeers();
-  }
+  },
 };
 </script>
 <style scoped>
@@ -140,13 +140,19 @@ export default {
     width: 100%;
     height: 19vw;
   }
+  .container {
+    margin-left: 90px;
+  }
 }
 @media only screen and (max-width: 400px) {
   .title {
     font-size: 9px;
   }
   .mb-2 {
-    width: 40%;
+    width: 45%;
+  }
+  .container {
+    margin-left: 110px;
   }
 }
 </style>

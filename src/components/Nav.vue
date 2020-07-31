@@ -32,7 +32,7 @@
 //import Random from "./Random";
 export default {
   name: "Nav",
-  components: {},
+  components: {}
 };
 </script>
 <style scoped>

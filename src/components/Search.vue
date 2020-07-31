@@ -40,7 +40,13 @@ export default {
 <style scoped>
 @media only screen and (max-width: 500px) {
   .search {
-    width: 200px;
+    width: 390px;
+    margin-left: 10px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .search {
+    width: 345px;
   }
 }
 </style>
