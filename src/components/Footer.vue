@@ -2,13 +2,15 @@
   <div class="f">
     <footer>
       website:
-      <router-link to="http://localhost:8080/">beer</router-link>
+      <router-link to="https://lydia-beer-vue.netlify.app/"
+        >lydia-beer-vue</router-link
+      >
     </footer>
   </div>
 </template>
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
 };
 </script>
 <style scoped>
