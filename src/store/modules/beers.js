@@ -6,9 +6,10 @@ const state = {
   randomBeer: null,
   searchString: "",
 };
+//initialize state
 
 const getters = {
-  allBeers: (state) => state.beers,
+  allBeers: (state) => state.beers, //get state of beers to display in  beer component
   currentBeer: (state) => state.currentBeer,
   getRandomBeer: (state) => state.randomBeer,
 
@@ -16,6 +17,7 @@ const getters = {
   filteredBeers: (state) => {
     if (state.searchString) {
       const query = state.searchString.toLowerCase();
+      //filter beers on specific properties
       return state.beers.filter(
         (beer) =>
           beer.name.toLowerCase().includes(query) ||
@@ -39,7 +41,9 @@ const getters = {
 };
 
 const actions = {
+  //call to api to get all beers
   async fetchBeers({ commit }) {
+    // call mutation with commit
     try {
       const response = await axios.get(
         "https://api.punkapi.com/v2/beers?per_page=10&brewed_before=11-2016"
@@ -61,6 +65,7 @@ const actions = {
   },
 
   async getRandom({ commit }) {
+    // call to api to get random beer
     try {
       const response = await axios.get(
         "https://api.punkapi.com/v2/beers/random"
@@ -81,7 +86,7 @@ const actions = {
 };
 
 const mutations = {
-  setBeers: (state, beers) => (state.beers = beers),
+  setBeers: (state, beers) => (state.beers = beers), // sets state with the fecthed beers with action
   setCurrentBeer: (state, currentBeer) => (state.currentBeer = currentBeer),
   setRandomBeer: (state, beer) => (state.randomBeer = beer),
   setSearchString: (state, searchString) => (state.searchString = searchString),
@@ -93,5 +98,3 @@ export default {
   actions,
   mutations,
 };
-
-//

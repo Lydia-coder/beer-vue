@@ -23,7 +23,9 @@
               params: { id: beer.id, beer: beer },
             }"
           >
-            <b-button class="link" size="sm" variant="outline-warning">View Beer details</b-button>
+            <b-button class="link" size="sm" variant="outline-warning"
+              >View Beer details</b-button
+            >
           </router-link>
         </b-card-text>
       </b-card>
@@ -39,13 +41,15 @@ export default {
   components: { Search },
   name: "Beers",
 
-  //props: ["beer.hidden"],
   methods: {
     ...mapActions(["fetchBeers"]),
+    //mapping action to component with fetched beers
   },
   computed: mapGetters(["filteredBeers"]),
+  // getter where beers can be searched on specific properties
 
   created() {
+    // life cicle method  to call action before component loads
     this.fetchBeers();
   },
 };

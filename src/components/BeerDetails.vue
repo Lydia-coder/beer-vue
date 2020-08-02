@@ -72,10 +72,13 @@ export default {
 
   methods: {
     ...mapActions(["updateCurrentBeer", "setCurrentBeer", "fetchBeers"]),
+    //mapping action to component
   },
 
   async created() {
+    // life cicle method  to call action before component loads
     const id = parseInt(this.$route.params.id);
+    //returns an integer
     if (this.allBeers.length > 0) {
       console.log("have bears in vuex");
       this.updateCurrentBeer(id);
@@ -92,6 +95,7 @@ export default {
       this.updateCurrentBeer(id);
     }
   },
+  //get current beer
 
   watch: {
     currentBeer: {
@@ -99,6 +103,7 @@ export default {
         if (this.currentBeer) {
           console.log("beers set?");
           localStorage.setItem("currentBeer", JSON.stringify(this.currentBeer));
+          //set current beer and save to localstorage
         }
       },
     },

@@ -14,17 +14,7 @@ import Footer from "../components/Footer";
 //import axios from "axios";
 export default {
   name: "Home",
-  components: { Beers, Header, Footer }
-  // data() {
-  //   return {
-  //     beers: [],
-  //   };
-  // },
-  // created() {
-  //   axios
-  //     .get("https://api.punkapi.com/v2/beers")
-  //     .then((res) => (this.beers = res.data))
-  //     .catch((error) => console.log(error));
-  // },
+  components: { Beers, Header, Footer },
+  // parent component that renders all child components
 };
 </script>
